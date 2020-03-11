@@ -7,13 +7,6 @@
  *       may be just as easy to generate the appropriate HTTP response (with a
  *       400-level or 500-level status code) as it would be to generate an Error
  *       object of some kind.
- *     * An HTTP-agnostic layer of the API server code base may generate an
- *       error.  It would be nice (but not essential) if the model and backend
- *       layers did not need to know about HTTP-specific things like status
- *       codes, particularly since they may not map straightforwardly.  For
- *       example, a NotFound error from the model may not result in a 404 out
- *       the API -- it might just mean that something in the model layer needs
- *       to create an object before using it.
  *
  * To achive this, we first define `HttpError`, which provides a status code,
  * error code (via an Enum), external message (for sending in the response),
